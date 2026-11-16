@@ -1,0 +1,28 @@
+{
+  "name": "starbug/menus",
+  "type": "starbug-module",
+  "description": "Starbug menus module.",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Ali Gangji",
+      "homepage": "https://github.com/cogentParadigm"
+    }
+  ],
+  "extra": {
+    "namespace": "Starbug\\Menus"
+  },
+  "require": {
+    "starbug/db": "^0.12",
+    "starbug/files": "^0.9",
+    "starbug/routing": "^1.0",
+    "starbug/admin": "^0.9",
+    "starbug/users": "^0.9",
+    "starbug/display": "^0.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "Starbug\\Menus\\": "src/"
+    }
+  }
+}

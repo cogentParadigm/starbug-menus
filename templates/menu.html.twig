@@ -1,0 +1,29 @@
+{% if attributes is not defined %}
+  {% set attributes = {} %}
+{% endif %}
+{% if itemAttributes is not defined %}
+  {% set itemAttributes = {} %}
+{% endif %}
+{% if anchorAttributes is not defined %}
+  {% set anchorAttributes = {} %}
+{% endif %}
+{% if iconAttributes is not defined %}
+  {% set iconAttributes = {} %}
+{% endif %}
+{% if subMenuAttributes is not defined %}
+  {% set subMenuAttributes = {} %}
+{% endif %}
+{% set links = helper("collections").get("Starbug\\Menus\\Collection\\MenuCollection").query({"menu": menu}) %}
+<ul {{ helper("filter").attributes(attributes)|raw }}>
+  {% for link in links %}
+    {{
+      include("menu-item.html.twig", {
+        "link": link,
+        "itemAttributes": itemAttributes,
+        "anchorAttributes": anchorAttributes,
+        "iconAttributes": iconAttributes,
+        "subMenuAttributes": subMenuAttributes
+      })
+    }}
+  {% endfor %}
+</ul>

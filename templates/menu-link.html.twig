@@ -1,0 +1,23 @@
+<li{{ helper("filter").attributes(itemAttributes)|raw }}>
+  <a{{ helper("filter").attributes(anchorAttributes)|raw }}>
+    {% if link.icon is not empty %}
+      {% set iconClass = [link.icon] %}
+      {% if iconAttributes.class is defined %}
+        {% if iconAttributes.class is iterable %}
+          {% set iconClass = iconClass|merge(iconAttributes.class) %}
+        {% else %}
+          {% set iconClass = iconClass|merge([iconAttributes.class]) %}
+        {% endif %}
+      {% endif %}
+      <i{{ helper("filter").attributes(iconAttributes|merge({"class": (iconClass|join(" "))}))|raw }}></i>
+    {% endif %}
+    <span class="menu-item-parent">{{ link.content }}</span>
+  </a>
+  {% if link.children is not empty %}
+    <ul{{ helper("filter").attributes(subMenuAttributes)|raw }}>
+      {% for child in link.children %}
+        {{ include("menu-item.html.twig", {"link": child}) }}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</li>
