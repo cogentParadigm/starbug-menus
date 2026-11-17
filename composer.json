@@ -14,7 +14,8 @@
   },
   "require": {
     "starbug/bundle": "^1.0",
-    "starbug/db": "^0.12"
+    "starbug/db": "^0.12",
+    "starbug/users": "^0.10"
   },
   "autoload": {
     "psr-4": {
